@@ -7,5 +7,9 @@ def RevSen(given):
 	newSen = " ".join(str(e) for e in newSenList)
 	return newSen
 
-Sen = input("Please enter a sentence with multiple words: ")
-print(RevSen(Sen))
+def RevSenSimple(given):
+	return " ".join(given.split(" ")[::-1])
+
+sen = input("Please enter a sentence with multiple words: ")
+print(RevSen(sen))
+print(RevSenSimple(sen))
