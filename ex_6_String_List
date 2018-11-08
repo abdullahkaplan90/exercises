@@ -1,0 +1,8 @@
+word = input("Enter a string: ")
+
+transWord = word[::-1]
+
+if(word == transWord):
+  print("{0} is a palindrome, which means reverse of {0} is also same".format(word))
+else:
+  print("Sorry, {0} is not a palindrome as {0} is not same as reverse of it, which is: {1}".format(word, transWord))
