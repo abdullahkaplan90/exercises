@@ -1,0 +1,27 @@
+import random
+
+number = random.randint(1,9)
+count = 0
+print("Please enter a number from 1 to 9 or type exit to quit!")
+while True:
+  guess = input("What is your guess?: ")
+  if(guess == "exit"):
+    break
+  try:
+    guess = int(guess)
+  except:
+    print("Type Error")
+    print("Please enter a number from 1 to 9 or type exit to quit!")
+  else:
+    count += 1 
+    if(int(guess)<1 or int(guess)>9):
+      print("Number Error")
+      print("Please enter a number from 1 to 9 or type exit to quit!")
+      count -= 1
+    elif(int(guess) < number): 
+      print("Your guess is low")
+    elif(int(guess) > number): 
+      print("Your guess is high")
+    else: 
+      print("You found the answer in {} turns.".format(count))
+      break
