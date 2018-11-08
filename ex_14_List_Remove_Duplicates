@@ -8,8 +8,7 @@ def RemoveDublicateFor(givenList):
 	return newList
 
 def RemoveDublicateSet(givenList):
-	newList = [i for i in set(givenList)]
-	return newList
+	return newList(set(givenList))
 
 a = []
 for i in range(random.randint(10,20)):
