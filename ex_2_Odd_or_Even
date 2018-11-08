@@ -1,0 +1,15 @@
+while True:
+  number = int(input("Enter a number: "))
+  check = int(input("Enter a check number: "))
+
+  if(number%check==0):
+    print("{} is a multiplier of {}".format(number,check))
+  else:
+    print("{} is not a multiplier of {}".format(number,check))
+      
+  if(number%4==0):
+      print("{} is multiplier of 4".format(number))
+  elif(number%2==0):
+      print("{} is an even number".format(number))
+  else:
+      print("{} is an odd number".format(number))
