@@ -1,8 +1,13 @@
 def Fibonaccis(number):
-	fibonacci = [1, 1]
-	for i in range(2,number-2):
-		fibonacci.append(fibonacci[i-2]+fibonacci[i-1])
+	fibonacci = []
+	if(number >=2):
+		fibonacci = [1, 1]
+		for i in range(2,number):
+			fibonacci.append(fibonacci[i-2]+fibonacci[i-1])
+	elif(number == 1 ):
+		fibonacci = [1]
 	return fibonacci
 
-count = int(input("Please enter a positive number: "))
-print(Fibonaccis(count))
+while True: 
+	count = int(input("Please enter a positive number: "))
+	print(Fibonaccis(count))
