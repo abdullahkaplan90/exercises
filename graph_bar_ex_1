@@ -1,0 +1,30 @@
+import random
+import matplotlib as mpl
+import numpy as np
+import matplotlib.pyplot as plt
+
+mpl.use('Agg')
+
+numberCount = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 0,
+  6: 0,
+  7: 0,
+  8: 0,
+  9: 0,
+}
+
+for i in range(100):
+  number = random.randint(1,9)
+  numberCount[number] += 1
+
+for key in numberCount:
+  print(key, ": ", numberCount[key])
+
+plt.bar(range(len(numberCount)), list(numberCount.values()), align='center')
+plt.xticks(range(len(numberCount)), list(numberCount.keys()))
+
+plt.savefig('plt.png')
