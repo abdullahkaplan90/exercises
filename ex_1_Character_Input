@@ -1,0 +1,14 @@
+import datetime
+import timedelta
+
+thisYear = datetime.date.today().year
+
+name = input("What is your name: ")
+age = int(input("What is your age: "))
+year = int(input("Give me the age you want to check?: "))
+
+print(type(thisYear))
+print(type(age))
+print(type(year))
+
+print("Hi {}, you will be {} in {}".format(name, year, thisYear+year-age))
