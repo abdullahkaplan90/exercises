@@ -1,0 +1,79 @@
+import random
+gameSet = ["R", "P", "S"]
+
+newGame = ""
+count = 0
+player = ""
+choiceCount = 0
+score = 0
+playerScore = 0
+computerScore = 0
+finalScore = 0
+
+#game rules are here
+def Rules(val1, val2):
+  if(val1 == val2):
+    result = 0
+  elif(val1 == "R"):
+    if(val2 == "P"):
+      result = -1
+    else: result = 1
+  elif(val1 == "P"):
+    if(val2 == "S"):
+      result = -1
+    else: result = 1
+  elif(val1 == "S"):
+    if(val2 == "R"):
+      result = -1
+    else: result = 1
+  return result
+
+#new game loop;
+#if selection is y, continue to game
+#if selection is n, end the game
+#if selection is not y or n 5 times in a row end the game
+while(newGame.upper() not in ["Y", "N"] and count <= 4):  
+  newGame = input("Do you want to play again? (Y/N): ")
+  #if selection is y continue
+  if(newGame.upper() == "Y"):
+    #computer selects
+    computer = random.choice(gameSet)
+    #player's choice is valid or not? 
+    while(player.upper() not in gameSet and choiceCount <= 4):
+      player = input("\nSelect one of Rock, Paper or Scissors \nENTER;\nR for Rock,\nP for Paper,\nS for Scissors\n").upper()
+      #player's choice is valid, continue
+      if(player.upper() in gameSet):
+        #score calculation
+        score = Rules(player.upper(), computer)
+        print("\nYour choice: {}\nComputer's choice: {}\n".format(player.upper(), computer))
+        if(score == 1): 
+          playerScore += 1
+          print("You Win\n")
+        elif(score == -1): 
+          print("Computer Wins\n")
+          computerScore += 1
+        else: print("It is a draw\n")
+        finalScore += score
+        print("Your score is: {}\nComputer's score is: {}\n".format(playerScore, computerScore))
+        print("----------------------------------------------")
+        break
+      #player's choice is not valid, count until 5.
+      else:
+        print("You made an invalid choice, please try again\nYou have {} remaining right(s) to enter valid value\n".format(4-choiceCount))
+        choiceCount += 1
+    player = ""
+    if(choiceCount == 5):
+      print("You entered invalid choice for 5 times. Game exitting... GOODBYE!!!\n")
+      print("----------------------------------------------")
+      break 
+  elif(newGame.upper() == "N"): 
+    print("You select not to play. GOODBYE!!!\n")
+    print("----------------------------------------------")
+    break
+  else:
+    print("You made an invalid choice, please try again\nYou have {} remaining right(s) to enter valid value\n".format(4-count))
+    count += 1
+newGame = ""
+if(count == 5):
+  print("You entered invalid choice for 5 times. Game exitting... GOODBYE!!!\n")
+  print("----------------------------------------------")
