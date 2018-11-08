@@ -1,0 +1,11 @@
+def RevSen(given):
+	sep = " "
+	newSenList = []
+	words = given.split(sep)
+	for i in range(len(words)):
+		newSenList.append(words[len(words)-1-i])
+	newSen = " ".join(str(e) for e in newSenList)
+	return newSen
+
+Sen = input("Please enter a sentence with multiple words: ")
+print(RevSen(Sen))
