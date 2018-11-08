@@ -1,6 +1,31 @@
-while True:
-  def Divisor(number):
-    print([i for i in range(1,num+1) if num%i==0])
+import random
 
-  num = int(input("Enter a number: "))
-  Divisor(num)
+firstList = []
+secondList = []
+commonList = []
+
+firstListSize = int(input("What is the size of the first list (1-10): "))
+secondListSize = int(input("What is the size of the second list (1-10): "))
+
+for x in range(firstListSize):
+  firstList.append(random.randint(1,51))
+
+for x in range(secondListSize):
+  secondList.append(random.randint(1,51))
+
+firstList.sort()
+secondList.sort()
+print(firstList)
+print(secondList)
+
+if(len(firstList) <= len(secondList)):
+  print("firstList is smaller so we will get in loop 1")
+  for item in firstList:
+    if (item in secondList) and (item not in commonList):
+      commonList.append(item)
+elif(len(firstList) > len(secondList)):
+  print("secondList is smaller so we will get in loop 2")
+  for item in secondList:
+    if (item in firstList) and (item not in commonList):
+      commonList.append(item)
+print(commonList)
